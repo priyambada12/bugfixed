@@ -69,7 +69,7 @@ app.controller('favCtrl', function($scope,$cookies,settingFactory,urls,$state) {
 	
 });
 
-app.controller('settingCtrl', function($scope,$cookies,settingFactory,$modal, $log) {
+app.controller('settingCtrl', function($scope,$cookies,settingFactory,$modal, $log,$state) {
 	
 	$scope.accounts =JSON.parse($cookies.get('user'));
 	var userID = $scope.accounts[0].user_registration_IDPK;
@@ -89,7 +89,7 @@ app.controller('settingCtrl', function($scope,$cookies,settingFactory,$modal, $l
 		else if($scope.user.newPwd !="" && $scope.user.confPwd!=""){
 		 if( $scope.user.newPwd == $scope.user.confPwd){
 		
-		settingFactory.changePassword({newpassword:$scope.newPwd,userId:userID},function(success){
+		settingFactory.changePassword({newpassword:$scope.user.newPwd,userId:userID},function(success){
 			if(success.data.status =="True"){
 				$scope.msgs ="password updated successfully";
 				angular.element("input[type='password']").val(null);
@@ -187,7 +187,7 @@ app.controller('recentlyViewedCtrl', function($scope,$cookies,settingFactory,url
 
 });
 
-app.controller('referEarnCtrl', function($scope,$cookies,settingFactory,$modal, $log) {
+app.controller('referEarnCtrl', function($scope,$cookies,settingFactory,$modal, $log,$state) {
     $scope.userRefer = {userID:'',name:'',number:'',msg:''}
 	$scope.accounts =JSON.parse($cookies.get('user'));
 	var user_id = $scope.accounts[0].user_registration_IDPK;

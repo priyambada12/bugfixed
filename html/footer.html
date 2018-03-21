@@ -45,12 +45,9 @@ Our work does not end here. We assist you with home loans and property registrat
                     </div>
                     <div class="footer_right_links mrgLft15">
                     	<h1>Builders</h1>
-                        <ul>
-                        	<li><a >Prestige Group</a></li>
-                            <li><a >Sobha Limited</a></li>
-                            <li><a >DLF</a></li>
-                            <li><a >Unitech</a></li>
-                            <li><a >Kolte Patil Developers</a></li>
+                        <ul ng-repeat="builder in builders">
+                        	<li><a ui-sref="city({cityname:'',locality:'',buliderId:builder.buliderInfo_IDPK,reraId:''})">{{builder.buliderInfo_name}}</a></li>
+                           
                         </ul>
                     </div>
                     

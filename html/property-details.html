@@ -1,5 +1,12 @@
  <style>
  .element-imgs{display:inline-block;margin-right:5px; width:120px;} 
+ .bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+	color:#fff;
+	font-size:30px;
+}
  </style>
  
  <div loading-indicator class="waiting-box">
@@ -12,7 +19,7 @@
         	<div class="row">
             	<div class="col-lg-12 col-md-12 col-sm-12">
                 	<h1>{{propDetail.propertyName}}</h1>
-                    <!-- <h3>by Prestige Group</h3> -->
+                     <h3>by {{propDetail.BuliderName}}</h3>
                     <p><img src="images/location_icon2.png" alt="" /> {{location}}, {{city_name}}</p>
                 </div>
             </div>
@@ -87,7 +94,7 @@
                             <div class="left" id="slideshow-main">
 			<slick class="slider glry-left-thumb" init-onload="true" settings="slickConfig2" ng-if="slickConfig2Loaded">
 				<div ng-repeat="imgs in propDetail.images">
-					<img src="{{propertyimage}}{{imgs.name}}" alt="One">
+					<img src="{{propertyimage}}{{imgs.name}}" alt="One"><div class="bottom-left">{{imgs.image_title}}</div>
 					
 				</div>
 			</slick>
@@ -96,7 +103,7 @@
                             <div class="right">
 			<slick class="slider-nav-thumbnails glry-right-thumb mCustomScrollbar" init-onload="true" settings="slickConfig3"                    ng-if="slickConfig3Loaded">
 				<div class="thumb-div" ng-repeat="img in propDetail.images">
-                    <img src="{{propertyimage}}{{img.name}}" alt="One">
+                   <img src="{{propertyimage}}{{img.name}}" alt="One">
 				</div>
 			</slick>
                             </div>

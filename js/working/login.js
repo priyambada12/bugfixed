@@ -96,8 +96,9 @@ $scope.doRegistration = function(signUp){
 			$scope.msgs ="Enter password";
 			$scope.open();
 		}else if(user.email !="" && user.password!="" ){
-
+		console.log(user);	
 		loginFactory.signinWithHomes247(user,function(success){
+			console.log(success);
 		if(success.data.status=="True"){
 
 			var userDetails = success.data.details;
